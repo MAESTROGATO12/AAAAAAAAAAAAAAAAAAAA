@@ -44,29 +44,28 @@ body {
     text-align:center; z-index:10;
 }
 
-/* LOGO */
+/* LOGO PEQUEÑO */
 .logo-container { margin-bottom:20px; text-align:center; }
 .logo {
-    width:80vw;      /* Ocupa 80% del ancho de la pantalla */
-    max-width:1000px; 
-    height:auto;     /* Mantiene proporción */
+    width:150px;      /* Logo pequeño */
+    height:auto;
     object-fit:contain;
-    filter: drop-shadow(0 0 30px #8a2be2)
-            drop-shadow(0 0 50px #da70d6)
-            drop-shadow(0 0 80px #ff69b4);
+    filter: drop-shadow(0 0 20px #8a2be2)
+            drop-shadow(0 0 30px #da70d6)
+            drop-shadow(0 0 50px #ff69b4);
     transition: transform 0.3s, filter 0.3s;
 }
 .logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 50px #8a2be2)
-            drop-shadow(0 0 80px #da70d6)
-            drop-shadow(0 0 120px #ff69b4);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px #8a2be2)
+            drop-shadow(0 0 50px #da70d6)
+            drop-shadow(0 0 80px #ff69b4);
 }
 
 /* TITULO */
 h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size:6em;
+    font-size:5em;
     color:#8a2be2;
     text-shadow:0 0 20px #8a2be2,0 0 40px #8a2be2,0 0 60px #da70d6,0 0 100px #da70d6;
     animation:neonPulse 2.5s infinite alternate;
