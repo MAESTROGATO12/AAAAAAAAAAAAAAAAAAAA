@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sombravale - Viniendo en 2027</title>
+    <title>Sombravale - En 2027</title>
     <style>
         * {
             margin: 0;
@@ -20,35 +20,14 @@
             background: linear-gradient(135deg, #1a1a2e, #162447);
             overflow: hidden;
             color: #fff;
-        }
-
-        /* Partículas flotantes */
-        .particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(233, 69, 96, 0.7);
-            border-radius: 50%;
-            animation: float 10s infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-10vh) translateX(100px) scale(1); opacity: 0; }
-        }
-
-        .container {
-            z-index: 1;
             text-align: center;
-            max-width: 90%;
         }
 
         h1 {
-            font-size: 4em;
+            font-size: 5em;
             color: #e94560;
-            animation: pop 1s ease forwards;
             text-shadow: 0 0 20px #e94560, 0 0 40px #e94560;
+            animation: pop 1s ease forwards;
         }
 
         @keyframes pop {
@@ -57,21 +36,10 @@
         }
 
         p {
-            font-size: 1.5em;
-            margin: 0.5em 0 1em;
+            font-size: 2em;
+            margin-top: 0.5em;
             color: #ffffffcc;
             animation: fadeIn 2s ease forwards;
-        }
-
-        .countdown {
-            font-size: 2em;
-            margin-top: 1em;
-            color: #0f3460;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5em 1em;
-            border-radius: 15px;
-            display: inline-block;
-            animation: fadeIn 2.5s ease forwards;
         }
 
         @keyframes fadeIn {
@@ -79,65 +47,39 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        button {
-            margin-top: 2em;
-            padding: 0.8em 2em;
-            font-size: 1em;
-            background-color: #e94560;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: fadeIn 3s ease forwards;
-            position: relative;
+        /* Partículas flotantes */
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(233, 69, 96, 0.6);
+            border-radius: 50%;
+            animation: float 10s infinite linear;
         }
 
-        button:hover {
-            background-color: #d13450;
-            transform: scale(1.1);
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(100px) scale(1); opacity: 0; }
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Sombravale</h1>
-        <p>¡Viniendo en 2027! Prepárate para la aventura y el misterio.</p>
-        <div class="countdown" id="countdown"></div>
-        <button onclick="alert('¡Gracias por tu interés!')">Notificarme</button>
+        <p>En 2027</p>
     </div>
 
     <script>
-        // Contador regresivo para 2027
-        const releaseDate = new Date("2027-01-01T00:00:00").getTime();
-
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = releaseDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            if(distance < 0) {
-                clearInterval(countdown);
-                document.getElementById("countdown").innerHTML = "¡El juego ya está disponible!";
-            }
-        }, 1000);
-
         // Crear partículas flotantes
-        for(let i=0; i<30; i++){
+        for(let i = 0; i < 30; i++){
             const particle = document.createElement('div');
             particle.classList.add('particle');
             particle.style.left = Math.random() * 100 + 'vw';
             particle.style.animationDuration = 5 + Math.random() * 10 + 's';
-            particle.style.width = particle.style.height = 5 + Math.random() * 10 + 'px';
+            particle.style.width = particle.style.height = 5 + Math.random() * 12 + 'px';
             document.body.appendChild(particle);
         }
     </script>
 </body>
 </html>
-
