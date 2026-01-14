@@ -5,257 +5,142 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sombravale - En 2027</title>
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="A_logo_design_spells_out_the_word_&quot;Sombravale&quot;_in_.png">
+
 <!-- Fuente elegante -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* =========================
-   RESET BÁSICO
-========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body, html {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; width:100%; overflow:hidden; font-family:'Poppins',sans-serif; }
 
-/* =========================
-   FONDO ESTÉTICO PROFUNDO
-========================= */
+/* FONDO ESTÉTICO */
 body {
-    background: linear-gradient(180deg, #0b0c1a 0%, #1c1b45 100%);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(180deg,#0b0c1a 0%,#1c1b45 100%);
+    position:relative; overflow:hidden;
 }
 
-/* Estrellas pequeñas */
+/* PARTICULAS Y NEBULOSAS */
 .star {
-    position: absolute;
-    background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: twinkle linear infinite;
+    position:absolute; border-radius:50%;
+    background:radial-gradient(circle,#fff 0%,rgba(255,255,255,0) 70%);
+    pointer-events:none; animation:twinkle linear infinite;
 }
+@keyframes twinkle {0%,100%{opacity:0.2;}50%{opacity:1;}}
 
-/* Animación de parpadeo de estrellas */
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 1; }
-}
-
-/* Neblina flotante */
 .nebula {
-    position: absolute;
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(138,43,226,0.15), rgba(75,0,130,0));
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: floatNebula linear infinite;
+    position:absolute; width:600px; height:400px;
+    background:radial-gradient(circle,rgba(138,43,226,0.15),rgba(75,0,130,0));
+    border-radius:50%; filter:blur(80px); animation:floatNebula linear infinite;
 }
+@keyframes floatNebula {0%{transform:translateX(-200px) translateY(0);}100%{transform:translateX(120vw) translateY(50px);}}
 
-@keyframes floatNebula {
-    0% { transform: translateX(-200px) translateY(0); }
-    100% { transform: translateX(120vw) translateY(50px); }
-}
-
-/* =========================
-   CONTENEDOR CENTRAL
-========================= */
+/* CONTENEDOR CENTRAL */
 .main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 10;
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    text-align:center; z-index:10;
 }
 
-/* =========================
-   TITULO NEÓN
-========================= */
+/* LOGO */
+.logo-container { margin-bottom:20px; text-align:center; }
+.logo {
+    width:400px; max-width:80vw;
+    filter: drop-shadow(0 0 30px #8a2be2)
+            drop-shadow(0 0 50px #da70d6)
+            drop-shadow(0 0 80px #ff69b4);
+    transition: transform 0.3s, filter 0.3s;
+}
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 50px #8a2be2)
+            drop-shadow(0 0 80px #da70d6)
+            drop-shadow(0 0 120px #ff69b4);
+}
+
+/* TITULO */
 h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 6em;
-    color: #8a2be2;
-    text-shadow: 
-        0 0 20px #8a2be2,
-        0 0 40px #8a2be2,
-        0 0 60px #da70d6,
-        0 0 100px #da70d6;
-    animation: neonPulse 2.5s infinite alternate;
-    position: relative;
+    font-size:6em;
+    color:#8a2be2;
+    text-shadow:0 0 20px #8a2be2,0 0 40px #8a2be2,0 0 60px #da70d6,0 0 100px #da70d6;
+    animation:neonPulse 2.5s infinite alternate; position:relative;
 }
+@keyframes neonPulse {0%{text-shadow:0 0 10px #8a2be2,0 0 20px #8a2be2,0 0 40px #8a2be2,0 0 80px #da70d6;}100%{text-shadow:0 0 30px #da70d6,0 0 60px #da70d6,0 0 90px #ff69b4,0 0 140px #ff69b4;}}
 
-@keyframes neonPulse {
-    0% { text-shadow: 0 0 10px #8a2be2,0 0 20px #8a2be2,0 0 40px #8a2be2,0 0 80px #da70d6; }
-    100% { text-shadow: 0 0 30px #da70d6,0 0 60px #da70d6,0 0 90px #ff69b4,0 0 140px #ff69b4; }
-}
+/* SUBTITULO */
+p.subtitle { font-size:2em; color:#c0a3ff; text-shadow:0 0 15px #c0a3ff44; margin-top:0.2em; }
 
-/* =========================
-   SUBTITULO
-========================= */
-p.subtitle {
-    font-size: 2em;
-    color: #c0a3ff;
-    text-shadow: 0 0 15px #c0a3ff44;
-    margin-top: 0.2em;
-}
-
-/* =========================
-   TARJETAS FLOTANTES
-========================= */
-.cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 50px;
-    perspective: 500px;
-}
-
+/* TARJETAS */
+.cards { display:flex; justify-content:center; flex-wrap:wrap; gap:25px; margin-top:50px; perspective:500px; }
 .card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 30px;
-    width: 260px;
-    text-align: center;
-    transition: transform 0.5s, background 0.5s, box-shadow 0.5s;
-    cursor: pointer;
+    background:rgba(255,255,255,0.05); backdrop-filter:blur(15px); border-radius:20px;
+    padding:30px; width:260px; text-align:center; transition:transform 0.5s,background 0.5s,box-shadow 0.5s; cursor:pointer;
 }
+.card:hover { transform:rotateY(10deg) rotateX(5deg) translateY(-15px) scale(1.05); background:rgba(255,255,255,0.15); box-shadow:0 0 50px rgba(138,43,226,0.5); }
+.card h2 { color:#da70d6; margin-bottom:12px; font-size:1.5em; }
+.card p { color:#ffffffcc; font-size:1em; }
 
-.card:hover {
-    transform: rotateY(10deg) rotateX(5deg) translateY(-15px) scale(1.05);
-    background: rgba(255,255,255,0.15);
-    box-shadow: 0 0 50px rgba(138,43,226,0.5);
-}
-
-.card h2 {
-    color: #da70d6;
-    margin-bottom: 12px;
-    font-size: 1.5em;
-}
-
-.card p {
-    color: #ffffffcc;
-    font-size: 1em;
-}
-
-/* =========================
-   BOTÓN DE NOTIFICACIÓN
-========================= */
+/* BOTON */
 .notify-btn {
-    margin-top: 60px;
-    padding: 18px 45px;
-    font-size: 1.3em;
-    background-color: #8a2be2;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.4s;
-    position: relative;
-    z-index: 10;
-    box-shadow: 0 0 20px rgba(138,43,226,0.7);
+    margin-top:60px; padding:18px 45px; font-size:1.3em; background-color:#8a2be2; border:none; border-radius:12px;
+    cursor:pointer; transition:all 0.4s; position:relative; z-index:10; box-shadow:0 0 20px rgba(138,43,226,0.7);
 }
-
 .notify-btn:hover {
-    transform: scale(1.1) rotate(-2deg);
-    background-color: #da70d6;
-    box-shadow: 0 0 40px rgba(218,112,214,0.8);
+    transform:scale(1.1) rotate(-2deg); background-color:#da70d6; box-shadow:0 0 40px rgba(218,112,214,0.8);
 }
 
-/* =========================
-   DESTELLOS ALEATORIOS EN TITULO
-========================= */
-.sparkle {
-    position:absolute;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:#ff69b4;
-    animation: sparkle 1.5s infinite;
-}
+/* DESTELLOS */
+.sparkle { position:absolute; width:6px; height:6px; border-radius:50%; background:#ff69b4; animation:sparkle 1.5s infinite; }
+@keyframes sparkle {0%,100%{opacity:1; transform:translate(0,0) scale(1);}50%{opacity:0.3; transform:translate(3px,-3px) scale(1.2);}}
 
-@keyframes sparkle {
-    0%,100% { opacity:1; transform:translate(0,0) scale(1); }
-    50% { opacity:0.3; transform:translate(3px,-3px) scale(1.2); }
-}
+/* RESPONSIVE */
+@media(max-width:900px){ h1{font-size:4em;} p.subtitle{font-size:1.6em;} .card{width:200px;padding:20px;} }
+@media(max-width:500px){ h1{font-size:3em;} p.subtitle{font-size:1.2em;} .cards{gap:15px;} }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media(max-width: 900px){
-    h1 { font-size:4em; }
-    p.subtitle { font-size:1.6em; }
-    .card { width:200px; padding:20px; }
-}
-
-@media(max-width: 500px){
-    h1 { font-size:3em; }
-    p.subtitle { font-size:1.2em; }
-    .cards { gap:15px; }
-}
 </style>
 </head>
 <body>
 
-<!-- PARTICULAS -->
+<!-- PARTICULAS Y NEBULOSAS -->
 <script>
 const numStars=100;
 for(let i=0;i<numStars;i++){
-    const s=document.createElement('div');
-    s.classList.add('star');
-    const size=Math.random()*3+1;
-    s.style.width=size+'px';
-    s.style.height=size+'px';
-    s.style.left=Math.random()*100+'vw';
-    s.style.top=Math.random()*100+'vh';
+    const s=document.createElement('div'); s.classList.add('star');
+    const size=Math.random()*3+1; s.style.width=size+'px'; s.style.height=size+'px';
+    s.style.left=Math.random()*100+'vw'; s.style.top=Math.random()*100+'vh';
     s.style.animationDuration=(2+Math.random()*3)+'s';
     document.body.appendChild(s);
 }
-
-// Nebulosas
 for(let i=0;i<5;i++){
-    const n=document.createElement('div');
-    n.classList.add('nebula');
-    n.style.left=Math.random()*100+'vw';
-    n.style.top=Math.random()*60+'vh';
-    n.style.width=(400+Math.random()*300)+'px';
-    n.style.height=(200+Math.random()*200)+'px';
+    const n=document.createElement('div'); n.classList.add('nebula');
+    n.style.left=Math.random()*100+'vw'; n.style.top=Math.random()*60+'vh';
+    n.style.width=(400+Math.random()*300)+'px'; n.style.height=(200+Math.random()*200)+'px';
     n.style.animationDuration=(60+Math.random()*60)+'s';
     document.body.appendChild(n);
 }
-
-// Destellos en el título
 for(let i=0;i<40;i++){
-    const d=document.createElement('div');
-    d.classList.add('sparkle');
-    d.style.left=(50+Math.random()*100-50)+'%';
-    d.style.top=(40+Math.random()*60-30)+'%';
+    const d=document.createElement('div'); d.classList.add('sparkle');
+    d.style.left=(50+Math.random()*100-50)+'%'; d.style.top=(40+Math.random()*60-30)+'%';
     d.style.animationDuration=(1+Math.random()*2)+'s';
     document.body.appendChild(d);
 }
-
-// Interacción con el mouse
-document.addEventListener('mousemove', e=>{
+document.addEventListener('mousemove',e=>{
     const stars=document.querySelectorAll('.star');
     stars.forEach(s=>{
         const rect=s.getBoundingClientRect();
-        const dx=(e.clientX - rect.x)/50;
-        const dy=(e.clientY - rect.y)/50;
-        s.style.transform=`translate(${dx}px, ${dy}px)`;
+        const dx=(e.clientX-rect.x)/50; const dy=(e.clientY-rect.y)/50;
+        s.style.transform=`translate(${dx}px,${dy}px)`;
     });
 });
 </script>
 
 <!-- CONTENIDO CENTRAL -->
 <div class="main">
+    <div class="logo-container">
+        <img src="A_logo_design_spells_out_the_word_&quot;Sombravale&quot;_in_.png" alt="logo.png" class="logo">
+    </div>
     <h1>Sombravale</h1>
     <p class="subtitle">En 2027</p>
 
@@ -283,4 +168,3 @@ document.addEventListener('mousemove', e=>{
 
 </body>
 </html>
-
