@@ -31,9 +31,9 @@ body {
 @keyframes twinkle {0%,100%{opacity:0.2;}50%{opacity:1;}}
 
 .nebula {
-    position:absolute; width:600px; height:400px;
+    position:absolute; border-radius:50%; filter:blur(80px);
     background:radial-gradient(circle,rgba(138,43,226,0.15),rgba(75,0,130,0));
-    border-radius:50%; filter:blur(80px); animation:floatNebula linear infinite;
+    animation:floatNebula linear infinite;
 }
 @keyframes floatNebula {0%{transform:translateX(-200px) translateY(0);}100%{transform:translateX(120vw) translateY(50px);}}
 
@@ -46,7 +46,10 @@ body {
 /* LOGO */
 .logo-container { margin-bottom:20px; text-align:center; }
 .logo {
-    width:400px; max-width:80vw;
+    width:auto;           /* Mantiene proporción */
+    height:250px;         /* Ajusta altura según necesites */
+    max-width:80vw;
+    object-fit:contain;   /* No se corta ni deforma */
     filter: drop-shadow(0 0 30px #8a2be2)
             drop-shadow(0 0 50px #da70d6)
             drop-shadow(0 0 80px #ff69b4);
@@ -163,7 +166,7 @@ document.addEventListener('mousemove',e=>{
         </div>
     </div>
 
-    <button class="notify-btn" onclick="alert('¡Te notificaremos cuando Sombravale llegue!')">Notificarme</button>
+    <button class="notify-btn" onclick="alert('¡Te notificaremos cuando Sombravale llegue en 2027!')">Notificarme</button>
 </div>
 
 </body>
