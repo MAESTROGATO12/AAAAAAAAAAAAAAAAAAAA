@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sombravale - En 2027</title>
+
+<!-- Fuente elegante -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-/* ===================================
+/* =========================
    RESET BÁSICO
-=================================== */
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -17,70 +21,66 @@ body, html {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* ===================================
-   FONDO UNIVERSO MISTERIOSO
-=================================== */
+/* =========================
+   FONDO ESTÉTICO PROFUNDO
+========================= */
 body {
-    background: radial-gradient(circle at center, #0b0c1a, #1c1b45);
+    background: linear-gradient(180deg, #0b0c1a 0%, #1c1b45 100%);
     position: relative;
-    perspective: 1000px;
     overflow: hidden;
 }
 
-/* ===================================
-   PARTICULAS DEL UNIVERSO
-=================================== */
-.particle {
+/* Estrellas pequeñas */
+.star {
     position: absolute;
+    background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(138,43,226,0.8), rgba(75,0,130,0.3));
     pointer-events: none;
-    animation: float linear infinite;
+    animation: twinkle linear infinite;
 }
 
-@keyframes float {
-    0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
+/* Animación de parpadeo de estrellas */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
     50% { opacity: 1; }
-    100% { transform: translateY(-10vh) translateX(50px) scale(1); opacity: 0; }
 }
 
-/* ===================================
-   NUBE MISTERIOSA EN FONDO
-=================================== */
-.cloud {
+/* Neblina flotante */
+.nebula {
     position: absolute;
-    width: 300px;
-    height: 80px;
-    background: rgba(255,255,255,0.03);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(138,43,226,0.15), rgba(75,0,130,0));
     border-radius: 50%;
-    filter: blur(20px);
-    animation: cloudMove linear infinite;
+    filter: blur(80px);
+    animation: floatNebula linear infinite;
 }
 
-@keyframes cloudMove {
-    0% { transform: translateX(-400px); }
-    100% { transform: translateX(110vw); }
+@keyframes floatNebula {
+    0% { transform: translateX(-200px) translateY(0); }
+    100% { transform: translateX(120vw) translateY(50px); }
 }
 
-/* ===================================
+/* =========================
    CONTENEDOR CENTRAL
-=================================== */
+========================= */
 .main {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 5;
+    z-index: 10;
 }
 
-/* ===================================
-   TITULO PRINCIPAL NEON
-=================================== */
+/* =========================
+   TITULO NEÓN
+========================= */
 h1 {
+    font-family: 'Orbitron', sans-serif;
     font-size: 6em;
     color: #8a2be2;
     text-shadow: 
@@ -88,7 +88,7 @@ h1 {
         0 0 40px #8a2be2,
         0 0 60px #da70d6,
         0 0 100px #da70d6;
-    animation: neonPulse 2s infinite alternate;
+    animation: neonPulse 2.5s infinite alternate;
     position: relative;
 }
 
@@ -97,43 +97,43 @@ h1 {
     100% { text-shadow: 0 0 30px #da70d6,0 0 60px #da70d6,0 0 90px #ff69b4,0 0 140px #ff69b4; }
 }
 
-/* ===================================
+/* =========================
    SUBTITULO
-=================================== */
+========================= */
 p.subtitle {
-    font-size: 2.2em;
+    font-size: 2em;
     color: #c0a3ff;
-    text-shadow: 0 0 10px #c0a3ff44;
+    text-shadow: 0 0 15px #c0a3ff44;
     margin-top: 0.2em;
-    position: relative;
 }
 
-/* ===================================
-   TARJETAS INFORMATIVAS
-=================================== */
+/* =========================
+   TARJETAS FLOTANTES
+========================= */
 .cards {
     display: flex;
     justify-content: center;
-    gap: 25px;
     flex-wrap: wrap;
+    gap: 25px;
     margin-top: 50px;
     perspective: 500px;
 }
 
 .card {
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 30px;
     width: 260px;
     text-align: center;
-    transition: transform 0.4s, background 0.4s;
+    transition: transform 0.5s, background 0.5s, box-shadow 0.5s;
     cursor: pointer;
 }
 
 .card:hover {
-    transform: rotateY(10deg) translateY(-15px) scale(1.05);
+    transform: rotateY(10deg) rotateX(5deg) translateY(-15px) scale(1.05);
     background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 50px rgba(138,43,226,0.5);
 }
 
 .card h2 {
@@ -147,12 +147,12 @@ p.subtitle {
     font-size: 1em;
 }
 
-/* ===================================
-   BOTON NOTIFICAR
-=================================== */
+/* =========================
+   BOTÓN DE NOTIFICACIÓN
+========================= */
 .notify-btn {
     margin-top: 60px;
-    padding: 18px 40px;
+    padding: 18px 45px;
     font-size: 1.3em;
     background-color: #8a2be2;
     border: none;
@@ -160,22 +160,19 @@ p.subtitle {
     cursor: pointer;
     transition: all 0.4s;
     position: relative;
-    z-index:10;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(138,43,226,0.7);
 }
 
 .notify-btn:hover {
     transform: scale(1.1) rotate(-2deg);
     background-color: #da70d6;
+    box-shadow: 0 0 40px rgba(218,112,214,0.8);
 }
 
-/* ===================================
-   EFECTO DESTELLOS ALEATORIOS EN EL TITULO
-=================================== */
-@keyframes sparkle {
-    0%,100% { opacity: 1; transform: translate(0,0) scale(1); }
-    50% { opacity: 0.3; transform: translate(3px,-3px) scale(1.2); }
-}
-
+/* =========================
+   DESTELLOS ALEATORIOS EN TITULO
+========================= */
 .sparkle {
     position:absolute;
     width:6px;
@@ -185,9 +182,14 @@ p.subtitle {
     animation: sparkle 1.5s infinite;
 }
 
-/* ===================================
+@keyframes sparkle {
+    0%,100% { opacity:1; transform:translate(0,0) scale(1); }
+    50% { opacity:0.3; transform:translate(3px,-3px) scale(1.2); }
+}
+
+/* =========================
    RESPONSIVE
-=================================== */
+========================= */
 @media(max-width: 900px){
     h1 { font-size:4em; }
     p.subtitle { font-size:1.6em; }
@@ -205,27 +207,52 @@ p.subtitle {
 
 <!-- PARTICULAS -->
 <script>
-const numParticles=80;
-for(let i=0;i<numParticles;i++){
-    const p=document.createElement('div');
-    p.classList.add('particle');
-    const size=Math.random()*6+3;
-    p.style.width=size+'px';
-    p.style.height=size+'px';
-    p.style.left=Math.random()*100+'vw';
-    p.style.top=Math.random()*100+'vh';
-    p.style.animationDuration=5+Math.random()*10+'s';
-    p.style.animationDelay=Math.random()*5+'s';
-    document.body.appendChild(p);
+const numStars=100;
+for(let i=0;i<numStars;i++){
+    const s=document.createElement('div');
+    s.classList.add('star');
+    const size=Math.random()*3+1;
+    s.style.width=size+'px';
+    s.style.height=size+'px';
+    s.style.left=Math.random()*100+'vw';
+    s.style.top=Math.random()*100+'vh';
+    s.style.animationDuration=(2+Math.random()*3)+'s';
+    document.body.appendChild(s);
 }
-</script>
 
-<!-- NUBES -->
-<div class="cloud" style="top:50px; animation-duration:70s;"></div>
-<div class="cloud" style="top:150px; animation-duration:100s;"></div>
-<div class="cloud" style="top:250px; animation-duration:85s;"></div>
-<div class="cloud" style="top:350px; animation-duration:120s;"></div>
-<div class="cloud" style="top:450px; animation-duration:90s;"></div>
+// Nebulosas
+for(let i=0;i<5;i++){
+    const n=document.createElement('div');
+    n.classList.add('nebula');
+    n.style.left=Math.random()*100+'vw';
+    n.style.top=Math.random()*60+'vh';
+    n.style.width=(400+Math.random()*300)+'px';
+    n.style.height=(200+Math.random()*200)+'px';
+    n.style.animationDuration=(60+Math.random()*60)+'s';
+    document.body.appendChild(n);
+}
+
+// Destellos en el título
+for(let i=0;i<40;i++){
+    const d=document.createElement('div');
+    d.classList.add('sparkle');
+    d.style.left=(50+Math.random()*100-50)+'%';
+    d.style.top=(40+Math.random()*60-30)+'%';
+    d.style.animationDuration=(1+Math.random()*2)+'s';
+    document.body.appendChild(d);
+}
+
+// Interacción con el mouse
+document.addEventListener('mousemove', e=>{
+    const stars=document.querySelectorAll('.star');
+    stars.forEach(s=>{
+        const rect=s.getBoundingClientRect();
+        const dx=(e.clientX - rect.x)/50;
+        const dy=(e.clientY - rect.y)/50;
+        s.style.transform=`translate(${dx}px, ${dy}px)`;
+    });
+});
+</script>
 
 <!-- CONTENIDO CENTRAL -->
 <div class="main">
@@ -254,28 +281,6 @@ for(let i=0;i<numParticles;i++){
     <button class="notify-btn" onclick="alert('¡Te notificaremos cuando Sombravale llegue en 2027!')">Notificarme</button>
 </div>
 
-<!-- DESTELLOS ALEATORIOS EN EL TITULO -->
-<script>
-for(let i=0;i<30;i++){
-    const s=document.createElement('div');
-    s.classList.add('sparkle');
-    s.style.left=(50+Math.random()*100-50)+'%';
-    s.style.top=(40+Math.random()*60-30)+'%';
-    s.style.animationDuration=(1+Math.random()*2)+'s';
-    document.body.appendChild(s);
-}
-
-// INTERACTIVIDAD CON EL MOUSE PARA PARTICULAS
-document.addEventListener('mousemove', e=>{
-    const particles=document.querySelectorAll('.particle');
-    particles.forEach(p=>{
-        const rect=p.getBoundingClientRect();
-        const dx=(e.clientX - rect.x)/50;
-        const dy=(e.clientY - rect.y)/50;
-        p.style.transform=`translate(${dx}px, ${dy}px)`;
-    });
-});
-</script>
-
 </body>
 </html>
+
