@@ -5,32 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Juego - Próximamente</title>
     <style>
-        body {
+        /* Reset básico */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #162447);
-            color: #ffffff;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e, #162447);
+            overflow: hidden;
+            color: #fff;
         }
+
+        /* Fondo animado de partículas */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(233, 69, 96, 0.7);
+            border-radius: 50%;
+            animation: float 10s infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) translateX(100px) scale(1); opacity: 0; }
+        }
+
+        .container {
+            z-index: 1;
+            text-align: center;
+            max-width: 90%;
+        }
+
         h1 {
             font-size: 4em;
-            margin: 0.2em 0;
             color: #e94560;
+            animation: pop 1s ease forwards;
         }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
         p {
             font-size: 1.5em;
-            margin: 0.5em 0;
+            margin: 0.5em 0 1em;
+            color: #ffffffcc;
+            animation: fadeIn 2s ease forwards;
         }
+
         .countdown {
             font-size: 2em;
             margin-top: 1em;
             color: #0f3460;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5em 1em;
+            border-radius: 15px;
+            display: inline-block;
+            animation: fadeIn 2.5s ease forwards;
         }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         button {
             margin-top: 2em;
             padding: 0.8em 2em;
@@ -39,21 +87,39 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            animation: fadeIn 3s ease forwards;
         }
+
         button:hover {
             background-color: #d13450;
+            transform: scale(1.1);
         }
+
+        /* Efecto de brillo en el botón */
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+            transform: skewX(-25deg);
+        }
+
     </style>
 </head>
 <body>
-    <h1>Mi Juego</h1>
-    <p>¡Próximamente en pre-alpha! Prepárate para la aventura.</p>
-    <div class="countdown" id="countdown"></div>
-    <button onclick="alert('¡Gracias por tu interés!')">Notificarme</button>
+    <div class="container">
+        <h1>Mi Juego</h1>
+        <p>¡Próximamente en pre-alpha! Prepárate para la aventura.</p>
+        <div class="countdown" id="countdown"></div>
+        <button onclick="alert('¡Gracias por tu interés!')">Notificarme</button>
+    </div>
 
     <script>
-        // Contador regresivo (puedes cambiar la fecha)
+        // Contador regresivo
         const releaseDate = new Date("2026-06-01T00:00:00").getTime();
 
         const countdown = setInterval(() => {
@@ -72,6 +138,16 @@
                 document.getElementById("countdown").innerHTML = "¡El juego ya está disponible!";
             }
         }, 1000);
+
+        // Crear partículas flotantes
+        for(let i=0; i<30; i++){
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = 5 + Math.random() * 10 + 's';
+            particle.style.width = particle.style.height = 5 + Math.random() * 10 + 'px';
+            document.body.appendChild(particle);
+        }
     </script>
 </body>
 </html>
