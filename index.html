@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Juego - Próximamente</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #162447);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 4em;
+            margin: 0.2em 0;
+            color: #e94560;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+        }
+        .countdown {
+            font-size: 2em;
+            margin-top: 1em;
+            color: #0f3460;
+        }
+        button {
+            margin-top: 2em;
+            padding: 0.8em 2em;
+            font-size: 1em;
+            background-color: #e94560;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #d13450;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Juego</h1>
+    <p>¡Próximamente en pre-alpha! Prepárate para la aventura.</p>
+    <div class="countdown" id="countdown"></div>
+    <button onclick="alert('¡Gracias por tu interés!')">Notificarme</button>
 
+    <script>
+        // Contador regresivo (puedes cambiar la fecha)
+        const releaseDate = new Date("2026-06-01T00:00:00").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = releaseDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if(distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "¡El juego ya está disponible!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
