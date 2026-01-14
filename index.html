@@ -47,7 +47,7 @@ body {
 /* LOGO PEQUEÑO */
 .logo-container { margin-bottom:20px; text-align:center; }
 .logo {
-    width:150px;      /* Logo pequeño */
+    width:150px;      
     height:auto;
     object-fit:contain;
     filter: drop-shadow(0 0 20px #8a2be2)
@@ -166,8 +166,33 @@ document.addEventListener('mousemove',e=>{
         </div>
     </div>
 
-    <button class="notify-btn" onclick="alert('¡Te notificaremos cuando Sombravale llegue en 2027!')">Notificarme</button>
+    <button class="notify-btn" id="notifyBtn">Notificarme</button>
 </div>
+
+<!-- NOTIFICACIONES -->
+<script>
+// Pedir permiso al cargar la página
+if("Notification" in window){
+    if(Notification.permission === "default"){
+        Notification.requestPermission();
+    }
+}
+
+// Función para enviar notificación
+function sendNotification(){
+    if(Notification.permission === "granted"){
+        new Notification("Sombravale 2027",{
+            body: "¡Prepárate para la aventura! Sombravale llegará pronto.",
+            icon: "logo.png"
+        });
+    } else {
+        alert("Por favor, habilita las notificaciones para recibir alertas.");
+    }
+}
+
+// Evento del botón
+document.getElementById("notifyBtn").addEventListener("click", sendNotification);
+</script>
 
 </body>
 </html>
