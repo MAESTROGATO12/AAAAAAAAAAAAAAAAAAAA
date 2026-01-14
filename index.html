@@ -6,111 +6,139 @@
     <title>Sombravale - En 2027</title>
     <style>
         /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #0b0c1a, #1a1a2e);
+            color: #fff;
             height: 100vh;
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #0b0c1a, #1a1a2e);
-            overflow: hidden;
-            color: #fff;
-            text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Contenedor central */
-        .container {
-            z-index: 1;
-            animation: fadeIn 2s ease forwards;
+        /* Fondo dinámico de nubes */
+        .cloud {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: floatClouds linear infinite;
+        }
+
+        @keyframes floatClouds {
+            0% { transform: translateX(-250px); }
+            100% { transform: translateX(110vw); }
+        }
+
+        /* Contenedor principal */
+        .main {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 80px;
         }
 
         h1 {
             font-size: 5em;
-            color: #e94560;
-            text-shadow: 
-                0 0 10px #e94560, 
-                0 0 20px #e94560, 
-                0 0 40px #e94560, 
-                0 0 80px #ff1e56;
+            color: #ff4f79;
+            text-shadow: 0 0 20px #ff4f79, 0 0 40px #ff4f79;
             animation: neonPulse 2s infinite alternate;
         }
 
-        p {
+        p.subtitle {
             font-size: 2em;
-            margin-top: 0.5em;
+            margin-top: 10px;
             color: #ffffffaa;
-            text-shadow: 0 0 10px #ffffff33;
-            animation: fadeIn 3s ease forwards;
-        }
-
-        /* Animaciones */
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes neonPulse {
-            0% { text-shadow: 0 0 10px #e94560, 0 0 20px #e94560, 0 0 40px #e94560, 0 0 80px #ff1e56; }
-            100% { text-shadow: 0 0 20px #ff1e56, 0 0 40px #ff1e56, 0 0 60px #ff1e56, 0 0 120px #ff1e56; }
+            0% { text-shadow: 0 0 10px #ff4f79, 0 0 20px #ff4f79, 0 0 40px #ff4f79; }
+            100% { text-shadow: 0 0 30px #ff4f79, 0 0 60px #ff4f79, 0 0 90px #ff4f79; }
         }
 
-        /* Partículas */
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(233,69,96,0.3));
-            pointer-events: none;
-            animation: float linear infinite;
+        /* Tarjetas informativas */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 60px;
+            flex-wrap: wrap;
         }
 
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-10vh) translateX(50px) scale(1); opacity: 0; }
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+            cursor: default;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .card h2 {
+            color: #ff4f79;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #ffffffcc;
+            font-size: 1em;
+        }
+
+        /* Botón */
+        .notify-btn {
+            margin-top: 50px;
+            padding: 15px 35px;
+            font-size: 1.2em;
+            background-color: #ff4f79;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .notify-btn:hover {
+            transform: scale(1.1);
+            background-color: #e63966;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Nubes dinámicas -->
+    <div class="cloud" style="top:50px; animation-duration: 60s;"></div>
+    <div class="cloud" style="top:150px; animation-duration: 80s;"></div>
+    <div class="cloud" style="top:300px; animation-duration: 100s;"></div>
+    <div class="cloud" style="top:400px; animation-duration: 70s;"></div>
+
+    <!-- Contenido principal -->
+    <div class="main">
         <h1>Sombravale</h1>
-        <p>En 2027</p>
+        <p class="subtitle">En 2027</p>
+
+        <div class="cards">
+            <div class="card">
+                <h2>Mundo</h2>
+                <p>Explora paisajes misteriosos y descubre secretos ocultos en Sombravale.</p>
+            </div>
+            <div class="card">
+                <h2>Historia</h2>
+                <p>Una historia épica llena de aventura, misterio y criaturas únicas.</p>
+            </div>
+            <div class="card">
+                <h2>Personajes</h2>
+                <p>Conoce héroes y aliados que te acompañarán en cada desafío.</p>
+            </div>
+        </div>
+
+        <button class="notify-btn" onclick="alert('¡Te notificaremos cuando Sombravale llegue en 2027!')">Notificarme</button>
     </div>
-
-    <script>
-        // Crear partículas dinámicas
-        const numParticles = 50;
-        for(let i = 0; i < numParticles; i++){
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-
-            const size = Math.random() * 6 + 4; // tamaño entre 4px y 10px
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDuration = 5 + Math.random() * 10 + 's';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-
-            document.body.appendChild(particle);
-        }
-
-        // Efecto de partículas que siguen el mouse
-        document.addEventListener('mousemove', e => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach(p => {
-                const x = parseFloat(p.style.left) || 0;
-                const yMove = (e.clientY / window.innerHeight - 0.5) * 20;
-                p.style.transform = `translateY(${yMove}px)`;
-            });
-        });
-    </script>
 </body>
 </html>
-
