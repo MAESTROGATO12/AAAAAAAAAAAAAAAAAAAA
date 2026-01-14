@@ -22,7 +22,7 @@ body {
     position:relative; overflow:hidden;
 }
 
-/* PARTICULAS Y NEBULOSAS */
+/* PARTICULAS */
 .star {
     position:absolute; border-radius:50%;
     background:radial-gradient(circle,#fff 0%,rgba(255,255,255,0) 70%);
@@ -30,6 +30,7 @@ body {
 }
 @keyframes twinkle {0%,100%{opacity:0.2;}50%{opacity:1;}}
 
+/* NEBULOSAS */
 .nebula {
     position:absolute; border-radius:50%; filter:blur(80px);
     background:radial-gradient(circle,rgba(138,43,226,0.15),rgba(75,0,130,0));
@@ -46,10 +47,10 @@ body {
 /* LOGO */
 .logo-container { margin-bottom:20px; text-align:center; }
 .logo {
-    width:auto;           /* Mantiene proporción */
-    height:250px;         /* Ajusta altura según necesites */
-    max-width:80vw;
-    object-fit:contain;   /* No se corta ni deforma */
+    width:80vw;      /* Ocupa 80% del ancho de la pantalla */
+    max-width:1000px; 
+    height:auto;     /* Mantiene proporción */
+    object-fit:contain;
     filter: drop-shadow(0 0 30px #8a2be2)
             drop-shadow(0 0 50px #da70d6)
             drop-shadow(0 0 80px #ff69b4);
@@ -68,7 +69,7 @@ h1 {
     font-size:6em;
     color:#8a2be2;
     text-shadow:0 0 20px #8a2be2,0 0 40px #8a2be2,0 0 60px #da70d6,0 0 100px #da70d6;
-    animation:neonPulse 2.5s infinite alternate; position:relative;
+    animation:neonPulse 2.5s infinite alternate;
 }
 @keyframes neonPulse {0%{text-shadow:0 0 10px #8a2be2,0 0 20px #8a2be2,0 0 40px #8a2be2,0 0 80px #da70d6;}100%{text-shadow:0 0 30px #da70d6,0 0 60px #da70d6,0 0 90px #ff69b4,0 0 140px #ff69b4;}}
 
