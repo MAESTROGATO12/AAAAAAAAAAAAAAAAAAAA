@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Juego - Próximamente</title>
+    <title>Sombravale - Próximamente</title>
     <style>
-        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -23,7 +22,7 @@
             color: #fff;
         }
 
-        /* Fondo animado de partículas */
+        /* Partículas flotantes */
         .particle {
             position: absolute;
             width: 10px;
@@ -49,6 +48,7 @@
             font-size: 4em;
             color: #e94560;
             animation: pop 1s ease forwards;
+            text-shadow: 0 0 20px #e94560, 0 0 40px #e94560;
         }
 
         @keyframes pop {
@@ -89,6 +89,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             animation: fadeIn 3s ease forwards;
+            position: relative;
         }
 
         button:hover {
@@ -96,24 +97,12 @@
             transform: scale(1.1);
         }
 
-        /* Efecto de brillo en el botón */
-        button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-            transform: skewX(-25deg);
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Mi Juego</h1>
-        <p>¡Próximamente en pre-alpha! Prepárate para la aventura.</p>
+        <h1>Sombravale</h1>
+        <p>¡Próximamente en pre-alpha! Prepárate para la aventura y el misterio.</p>
         <div class="countdown" id="countdown"></div>
         <button onclick="alert('¡Gracias por tu interés!')">Notificarme</button>
     </div>
@@ -150,4 +139,6 @@
         }
     </script>
 </body>
+</html>
+
 </html>
